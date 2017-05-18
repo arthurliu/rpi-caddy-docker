@@ -6,7 +6,11 @@
 **** **** **** **** ****
 ```
 
-Yet Another Dockerized Caddy HTTP/2 web server. Put the caddy in a docker container and ship it anywhere.
+Yet Another Dockerized Caddy HTTP/2 web server – **but for ARM architecture**.
+
+Put the caddy in a docker container and ship it anywhere **w/ your ARM architecture device, e.g. Raspberry Pi**.
+
+Build and tested on *Raspberry Pi 3 Model B* (`ARMv8`).
 
 ## Available tags
 
