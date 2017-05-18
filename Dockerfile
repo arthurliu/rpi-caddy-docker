@@ -40,7 +40,7 @@ ENV CADDY_VERSION v0.10.2
 
 RUN mkdir -p /srv && \
     curl -sL  https://github.com/mholt/caddy/releases/download/${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_arm7.tar.gz | \
-    tar xz -C /tmp/ && mv /tmp/caddy_linux_arm7 /usr/local/bin/caddy && \
+    tar xz -C /tmp/ && mv /tmp/caddy_${CADDY_VERSION}_linux_arm7/caddy /usr/local/bin/caddy && \
     chmod +x /usr/local/bin/caddy && \
     /usr/local/bin/caddy -version
 
