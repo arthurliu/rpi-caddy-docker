@@ -32,6 +32,29 @@ A data volume is exposed on /opt/caddy/data, and the node's ports are exposed on
 [...]
 ```
 
+## Build your own
+
+You can use `matthiasg/rpi-caddy` as the base image for your own Caddy web server instance.
+
+You might want to provide your own version of the following files:
+
+* `Caddyfile` for your custom Caddy config
+
+Example Dockerfile:
+
+```
+FROM matthiasg/rpi-caddy:latest
+
+COPY Caddyfile /var/lib/caddy/
+```
+
+and then build and run
+
+```
+[sudo] docker build -t you/awesome-caddy .
+[sudo] docker run -d -p 80:80 -p 443:443 -v ~/caddy:/var/lib/caddy you/awesome-caddy
+```
+
 ## Feedback, Issues, Contributing
 
 Please use Github issues for any questions, bugs, feature requests. :) I don't get notified about comments on Docker Hub, so I might respond really late...or not at all.
