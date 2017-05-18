@@ -28,7 +28,7 @@ A data volume is exposed on /opt/caddy/data, and the node's ports are exposed on
 
 ```
 # expose it to the world on ports 80 and 443 and use your current directory as the Caddy data directory
-[sudo] docker run -p 80:80 -p 443:443 -v $(pwd):/opt/caddy/data matthiasg/rpi-caddy
+[sudo] docker run -p 80:80 -p 443:443 -v $(pwd):/var/lib/caddy matthiasg/rpi-caddy
 [...]
 ```
 
