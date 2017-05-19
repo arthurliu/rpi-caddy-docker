@@ -7,6 +7,7 @@ RUN groupadd -r caddy && useradd -d /var/lib/caddy -g caddy caddy
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     ca-certificates \
     curl \
+    libcap2-bin \
   && rm -rf /var/lib/apt/lists/*
 
 # grab gosu for easy step-down from root and tini for signal handling
@@ -42,6 +43,7 @@ RUN mkdir -p /srv && \
     curl -sL  https://github.com/mholt/caddy/releases/download/${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_arm7.tar.gz | \
     tar xz -C /tmp/ && mv /tmp/caddy /usr/local/bin/caddy && \
     chmod +x /usr/local/bin/caddy && \
+    setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy && \
     /usr/local/bin/caddy -version
 
 COPY ./docker-entrypoint.sh /
