@@ -14,7 +14,8 @@ Build and tested on *Raspberry Pi 3 Model B* (`ARMv8`).
 
 ## Available tags
 
-- `latest`, `0.10.2`: Caddy v0.10.2
+- `latest`, `0.10.14`: Caddy v0.10.14
+- `0.10.2`: Caddy v0.10.2
 
 ## Features
 
@@ -22,11 +23,11 @@ Build and tested on *Raspberry Pi 3 Model B* (`ARMv8`).
 - exposes Caddy on ports `80` and `443` and Caddy's default `2015` of the container
 - runs everything as user `caddy` (security ftw!)
 
-## Run 0.10.2/ latest
+## Run 0.10.14/ latest
 
 Available on the docker registry as [matthiasg/rpi-caddy:latest](https://index.docker.io/u/matthiasg/rpi-caddy/).
 
-This is a build of the Caddy v0.10.2 release.
+This is a build of the Caddy v0.10.14 release.
 
 A data volume is exposed on /opt/caddy/data, and the node's ports are exposed on `80` and `443`.
 

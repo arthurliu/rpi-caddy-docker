@@ -37,7 +37,7 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364
   && rm /usr/local/bin/tini.asc \
   && chmod +x /usr/local/bin/tini
 
-ENV CADDY_VERSION v0.10.2
+ENV CADDY_VERSION v0.10.14
 
 RUN mkdir -p /srv && \
     curl -sL  https://github.com/mholt/caddy/releases/download/${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_arm7.tar.gz | \
