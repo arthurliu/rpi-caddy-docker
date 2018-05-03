@@ -10,7 +10,7 @@ if [ "$1" = 'caddy' ]; then
 
 	chmod 664 /var/lib/caddy/Caddyfile
 
-	exec gosu caddy "$@"
+	exec gosu caddy --agree=$ACME_AGREE "$@"
 fi
 
 exec "$@"
