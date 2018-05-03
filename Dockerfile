@@ -46,6 +46,9 @@ RUN mkdir -p /srv && \
     setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy && \
     /usr/local/bin/caddy -version
 
+# Let's Encrypt Agreement
+ENV ACME_AGREE="false"
+
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
 
@@ -53,4 +56,4 @@ EXPOSE 80 443 2015
 WORKDIR /var/lib/caddy
 
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
-CMD ["caddy"]
+CMD ["caddy", "--agree=$ACME_AGREE"]
