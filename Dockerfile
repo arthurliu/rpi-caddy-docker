@@ -56,4 +56,4 @@ EXPOSE 80 443 2015
 WORKDIR /var/lib/caddy
 
 ENTRYPOINT ["tini", "--", "/docker-entrypoint.sh"]
-CMD ["caddy", "--agree=$ACME_AGREE"]
+CMD ["caddy", "--agree=${ACME_AGREE}"]
