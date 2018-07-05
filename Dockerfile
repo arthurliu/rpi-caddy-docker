@@ -1,6 +1,6 @@
 FROM resin/rpi-raspbian:jessie
 
-MAINTAINER Matthias Geisler matthias@openwebcraft.com
+MAINTAINER Obey Arthur Liu arthur@milliways.fr
 
 RUN groupadd -r caddy && useradd -d /var/lib/caddy -g caddy caddy
 
@@ -38,7 +38,7 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364
   && chmod +x /usr/local/bin/tini
 
 RUN mkdir -p /srv && \
-    curl -sL  https://caddyserver.com/download/linux/arm7?plugins=http.filter,http.forwardproxy,http.git,http.grpc,http.ipfilter,http.jwt,http.login,http.proxyprotocol,http.realip,http.reauth,http.upload,http.webdav,tls.dns.dyn,tls.dns.googlecloud&license=personal&telemetry=off | \
+    curl -sL "https://caddyserver.com/download/linux/arm7?plugins=http.filter,http.forwardproxy,http.git,http.grpc,http.ipfilter,http.jwt,http.login,http.proxyprotocol,http.realip,http.reauth,http.upload,http.webdav,tls.dns.dyn,tls.dns.googlecloud&license=personal&telemetry=off" | \
     tar xz -C /tmp/ && mv /tmp/caddy /usr/local/bin/caddy && \
     chmod +x /usr/local/bin/caddy && \
     setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy && \
