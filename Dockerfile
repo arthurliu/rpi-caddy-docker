@@ -37,17 +37,15 @@ RUN gpg --keyserver ha.pool.sks-keyservers.net --recv-keys B42F6819007F00F88E364
   && rm /usr/local/bin/tini.asc \
   && chmod +x /usr/local/bin/tini
 
-ENV CADDY_VERSION v0.10.14
-
 RUN mkdir -p /srv && \
-    curl -sL  https://github.com/mholt/caddy/releases/download/${CADDY_VERSION}/caddy_${CADDY_VERSION}_linux_arm7.tar.gz | \
+    curl -sL  https://caddyserver.com/download/linux/arm7?plugins=http.filter,http.forwardproxy,http.git,http.grpc,http.ipfilter,http.jwt,http.login,http.proxyprotocol,http.realip,http.reauth,http.upload,http.webdav,tls.dns.dyn,tls.dns.googlecloud&license=personal&telemetry=off | \
     tar xz -C /tmp/ && mv /tmp/caddy /usr/local/bin/caddy && \
     chmod +x /usr/local/bin/caddy && \
     setcap 'cap_net_bind_service=+ep' /usr/local/bin/caddy && \
     /usr/local/bin/caddy -version
 
 # Let's Encrypt Agreement
-ENV ACME_AGREE="false"
+ENV ACME_AGREE="true"
 
 COPY ./docker-entrypoint.sh /
 RUN chmod +x /docker-entrypoint.sh
